@@ -1,0 +1,51 @@
+{% extends 'Base.html' %}
+{% block title %}Admin Signup{% endblock title %}
+{% block body %}
+
+
+<div class="container"  id="admin_signup">
+
+<h2 style="color: white;    text-align: center;">Upload Data </h2>
+    <form action=" {% url 'upload_data' %} " enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <input type="text" class="form-control" name="pname" required placeholder="Product name:"> <br>
+        <input type="text" class="form-control" name="mrp" required placeholder=" MRP:"> <br>
+        <input type="text" class="form-control" name="dprice" required placeholder="Discount Price:"> <br>
+        <input type="text" class="form-control" name="bname" required placeholder="Brand Name:"> <br>
+        <input type="text" class="form-control" name="vender" required placeholder="Vender Name:"> <br>
+        <select class="form-select" id="select" name="pcategory" aria-label="Default select example">
+            <option value="Not chosen" selected>Product Category</option>
+            <option>Brand New</option>
+            <option>Used</option>
+            <option>Refurbished</option>
+        </select> <br>
+
+      
+        <div class="mb-3">
+
+            <input class="form-control" type="file" id="formFile" name="product_image">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Product Description </label>
+            <textarea class="form-control " id="exampleFormControlTextarea1" rows="6" name="pdescription"></textarea>
+          </div>
+
+        
+        <input type="submit" id="sign_up" class="btn btn-outline-success" value="Sign up"><br>
+
+    </form>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock body %}

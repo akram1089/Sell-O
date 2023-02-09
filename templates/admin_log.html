@@ -1,0 +1,26 @@
+{% extends 'Base.html' %}
+{% block title %}Admin Login{% endblock title %}
+
+{% block body %}
+
+
+
+
+<div class="container" id="admin_signup">
+    <h1 style="color: white;    text-align: center;">Admin Login</h1>
+    <form action=" {% url 'admin_log' %} " method="post">
+        {% csrf_token %}
+        <input type="email" class="form-control" name="admin_email" placeholder="Enter your email:"> <br>
+        <input type="password" class="form-control" name="admin_pass" placeholder="Enter your password:"> <br>
+        <input type="submit" class="btn btn-outline-success" value="Login"><br>
+      
+
+      </form>
+
+</div>
+
+
+
+
+
+{% endblock body %}

@@ -1,0 +1,116 @@
+{% extends 'Base.html' %} {% block title %}{% endblock title %} {% block body %}
+
+<h2 style="color: white; text-align: center">Upload Bulk Data</h2>
+<form
+  action=" {% url 'multidata_data_upload' %} "
+  enctype="multipart/form-data"
+  method="post"
+>
+  {% csrf_token %}
+
+  <div class="bulk_data_upload">
+    <table class="table" id="admin_signup2">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Product name</th>
+          <th scope="col">MRP</th>
+          <th scope="col">Discount-Price</th>
+          <th scope="col">Brand-name</th>
+          <th scope="col">Vender</th>
+          <th scope="col">Product-category</th>
+          <th scope="col">Product-descripton</th>
+          <th scope="col">Product-Images</th>
+        </tr>
+      </thead>
+      <tbody id="tab">
+        <tr>
+          <th scope="row">1</th>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              name="pname"
+              required
+              placeholder="Product name:"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              name="mrp"
+              required
+              placeholder=" MRP:"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              name="dprice"
+              required
+              placeholder="Discount Price:"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              name="bname"
+              required
+              placeholder="Brand Name:"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              name="vender"
+              required
+              placeholder="Vender Name:"
+            />
+          </td>
+          <td>
+            <select
+              class="form-select"
+              id="select"
+              name="pcategory"
+              aria-label="Default select example"
+            >
+              <option value="Not chosen" selected>Product Category</option>
+              <option>Brand New</option>
+              <option>Used</option>
+              <option>Refurbished</option>
+            </select>
+          </td>
+          <td>
+            <textarea
+              class="form-control"
+              placeholder="products details"
+              id="exampleFormControlTextarea1"
+              rows="1"
+              name="pdescription"
+            ></textarea>
+          </td>
+          <td>
+            <input
+              class="form-control"
+              type="file"
+              id="formFile"
+              name="product_image"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bulk_buttons">
+    <input type="button" value="Add Table" onclick="add_table()" class="button btn btn-success" />
+    <input type="submit" value="Save Data" class="button btn btn-warning" />
+    <input type="button" value="Delete Row" class="button btn btn-danger" />
+  </div>
+</form>
+
+{% endblock body %}

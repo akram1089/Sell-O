@@ -1,0 +1,70 @@
+{% extends 'Base.html' %}
+{% block title %}Admin Signup{% endblock title %}
+{% block body %}
+
+
+<div class="container"  id="admin_signup">
+
+<h2 style="color: white;    text-align: center;">Admin Signup</h2>
+    <form action=" {% url 'admin_login' %} " enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <input type="text" class="form-control" name="fname" required placeholder="First name:"> <br>
+        <input type="text" class="form-control" name="lname" required placeholder="Last name:"> <br>
+        <input type="email" class="form-control" name="email" required placeholder="Email:"> <br>
+        <input type="text" class="form-control" name="pnum" required placeholder="Phone number:"> <br>
+        <select class="form-select" id="select" name="state" aria-label="Default select example">
+            <option selected>State</option>
+            <option>Odisha</option>
+            <option>West bengal</option>
+            <option>Telengana</option>
+        </select> <br>
+
+        <select class="form-select" id="select" name="city" aria-label="Default select example">
+            <option selected>City</option>
+            <option>Bhubaneshwar</option>
+            <option>Calcutta</option>
+            <option>Hyderabad</option>
+        </select>
+        <div class="radio d-flex justify-content-evenly">
+            <h5>Gender:</h5>
+            <div class="form-check">
+                <input class="form-check-input" name="gender" value="Male" type="radio" name="flexRadioDefault"
+                    id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="gender" value="Female" type="radio" name="flexRadioDefault"
+                    id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Female
+                </label>
+            </div>
+        </div>
+        <div class="mb-3">
+
+            <input class="form-control" type="file" id="formFile" name="user_image">
+        </div>
+
+
+        <input type="password" class="form-control" name="l_pass" placeholder="Enter your password:"> <br>
+        <input type="password" class="form-control" name="cpass" placeholder="Enter your password:"> <br>
+        <input type="submit" id="sign_up" class="btn btn-outline-success" value="Sign up"><br>
+
+    </form>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock body %}

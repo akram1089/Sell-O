@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> {% block title %}{% endblock title %} </title>
+  {% load static %}
+  <link rel="shortcut icon" href=" {% static 'fevicon/favicon.ico' %} " type="image/x-icon">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href=" {% static 'css/style.css' %} ">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+    integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    </head>
+
+<body>
+
+
+  {% comment %} NAVBAR> {% endcomment %}
+
+  <nav class="navbar navbar-expand-lg fixed-top bg-light  " id="nav_bar" data-aos="fade-down">
+    <div class="container">
+      <a class="navbar-brand" href="#">SELL,O.</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 ms-auto px-5 text-center">
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page"
+              href=" {% url 'home'  %} ">Home</a>
+          </li>
+          <li class=" nav-item">
+            <a class="nav-link {% if request.path == '/services' %}active{% endif %}"
+              href=" {% url 'services' %} ">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/about' %}active{% endif %}" href=" {% url 'about' %} ">About</a>
+          </li>
+          <li class="nav-item">
+
+
+            <a class="nav-link {% if request.path == '/contact' %}active{% endif %}"
+              href=" {% url 'contact' %}">Contact</a>
+          </li>
+          <li class="nav-item">
+            {% if request.session.f_name %}
+          <li class="nav-item dropdown">
+            <a class="nav-link  {% if request.path == '/log_out' %}active{% endif %} dropdown-toggle" id="nav_logout"
+              href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Whassup G,{{ request.session.f_name }}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href=" {% url 'log_out' %} ">Logout</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+
+          {% endif %}
+
+
+
+
+          <li class="nav-item">
+            {% if request.session.admin_f_name %}
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link  {% if request.path == '/log_out' %}active{% endif %} dropdown-toggle" id="nav_admin"
+              href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Admin Panel
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href=" {% url 'upload_data' %} ">Single data upload</a></li>
+              <li><a class="dropdown-item" href=" {% url 'multidata_data_upload' %} ">Bulk data upload</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="{% url 'view_data' %}">Views Data</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link  {% if request.path == '/log_out' %}active{% endif %} dropdown-toggle" id="nav_logout"
+              href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Admin,{{ request.session.admin_f_name }}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href=" {% url 'admin_logout' %} ">Logout</a></li>
+              <li><a class="dropdown-item" href="#"> action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+
+          {% endif %}
+
+          <li>
+            {% if not request.session.f_name %}
+            <a class="nav-link" id="login_here" href="#exampleModal" type="button"
+              class="btn btn-primary dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">Login
+              here</a>
+            {% endif %}
+          </li>
+         <li style="display: flex;
+    font-size: 24px;
+    align-items: center;
+    margin-left: 4px;">
+
+          <div class="dropdown">
+  
+            <i class="bi bi-search" class="secondary dropdown"  data-bs-toggle="dropdown" aria-expanded="false" style=" cursr:pointer; "></i>
+         
+          <ul class="dropdown-menu" style="">
+          <input type="text"> <button>search</button>
+          </ul>
+        </div>
+         </li>
+      </ul>
+
+    </div>
+    </div>
+  </nav>
+
+
+
+  {% comment %} NAVBAR END {% endcomment %}
+
+
+  {% comment %} ----MOdal--- {% endcomment %}
+
+  <!-- Modal -->
+  <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+        <div class="container">
+          <div class="row" id="f_modal">
+
+            <div class="col-4 fs-5" id="login_details">
+              <h1>SELL,O.</h1>
+              <h2>Login Here ,With correct credential please </h2>
+
+            </div>
+            <div class="col-8 ">
+
+              <form action=" {% url 'login_user' %} " method="post">
+                {% csrf_token %}
+                <input type="email" class="form-control" name="log_email" placeholder="Enter your email:"> <br>
+                <input type="password" class="form-control" name="log_pass" placeholder="Enter your password:"> <br>
+                <input type="submit" class="btn btn-outline-success" value="Login"><br>
+                <a href="reset_password/">Forget password</a>
+
+              </form>
+              <hr>
+              <div class="d-flex my-2 flex-column align-items-center">
+
+
+
+                <input type="button" class="btn btn-outline-success" value="Create an account" data-bs-toggle="modal"
+                  data-bs-target="#createaccountmodal">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% comment %} END_MODAL {% endcomment %}
+  {% comment %} --------CreateaccountModal---------- {% endcomment %}
+
+
+
+  <div class="modal fade" id="createaccountmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="container">
+
+          <div class="row">
+
+            <div class="col-4">
+
+              <h1>SELL,O.</h1>
+              <h2>Sign up Here ,and buy your dream at lowest price</h2>
+
+
+
+
+            </div>
+            <div class="col-8">
+
+              <form action=" {% url 'signup' %} " enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <input type="text" class="form-control" name="fname" required placeholder="First name:"> <br>
+                <input type="text" class="form-control" name="lname" required placeholder="Last name:"> <br>
+                <input type="email" class="form-control" name="email" required placeholder="Email:"> <br>
+                <input type="text" class="form-control" name="pnum" required placeholder="Phone number:"> <br>
+                <select class="form-select" id="select" name="state" aria-label="Default select example">
+                  <option selected>State</option>
+                  <option>Odisha</option>
+                  <option>West bengal</option>
+                  <option>Telengana</option>
+                </select> <br>
+
+                <select class="form-select" id="select" name="city" aria-label="Default select example">
+                  <option selected>City</option>
+                  <option>Bhubaneshwar</option>
+                  <option>Calcutta</option>
+                  <option>Hyderabad</option>
+                </select>
+                <div class="radio d-flex justify-content-evenly">
+                  <h5>Gender:</h5>
+                  <div class="form-check">
+                    <input class="form-check-input" name="gender" value="Male" type="radio" name="flexRadioDefault"
+                      id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" name="gender" value="Female" type="radio" name="flexRadioDefault"
+                      id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Female
+                    </label>
+                  </div>
+                </div>
+                <div class="mb-3">
+
+                  <input class="form-control" type="file" id="formFile" name="user_image">
+                </div>
+
+
+                <input type="password" class="form-control" name="l_pass" placeholder="Enter your password:"> <br>
+                <input type="password" class="form-control" name="cpass" placeholder="Enter your password:"> <br>
+                <input type="submit" id="sign_up" class="btn btn-outline-success" value="Sign up"><br>
+
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  {% comment %} End_createaccountmodal {% endcomment %}
+
+  {% for message in messages %}
+
+  <div class="alert alert-{{message.tags}} alert-dismissible fade show" tabindex="-1" role="alert" id="Alert">
+    <strong>Alert!</strong> {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  {% endfor %}
+
+
+
+  {% comment %} <div class="modal" tabindex="-1" role="modal">
+    <div class="modal-dialog bg-{{ message.tags }}">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ message }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-warning alert-dismissible fade show" tabindex="-1" role="alert">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% block body %}
+  
+  
+  
+  {% endblock body %}
+
+
+
+
+
+{% block footer %}{% endblock footer %}
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"
+    integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+  <script src=" {% static 'js/script.js' %} "></script>
+  <script>
+    AOS.init();
+  </script>
+  {% comment %} <script> {% endcomment %}
+
+    {% comment %} //  $(document).ready(function() {
+    //     $("#Alert").hide();
+    //     $("#sign_up").click(function showAlert() {
+    //       $("#Alert").fadeTo(5000, 2500).slideUp(1000, function() {
+    //         $("#Alert").slideUp(3000);
+    //       });
+    //     });
+    //   });
+    // </script> {% endcomment %}
+</body>
+
+</html>

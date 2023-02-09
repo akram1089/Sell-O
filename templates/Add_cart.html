@@ -1,0 +1,43 @@
+{% extends 'Base.html' %}
+{% block title %}Product Information{% endblock title %}
+
+{% block body %}
+
+{% for a in Add_cart %}
+
+<div class="container mt-5">
+    <div class="row">
+
+        <div class="col-6" id="pdetail_left">
+
+            {% if a.p_image %}
+            <img src="{{a.p_image.url}}" alt="" id="pc_card_img">
+            {% endif %}
+            <div class="cart_buttons">
+
+                <div class="button btn btn-primary">Add to Card</div>
+                <div class="button btn btn-primary">Buy Now</div>
+
+            </div>
+        </div>
+        <div class="col-6" id="pdetail_right">
+            <div class="pdetails">
+                <h1>Product Details</h1>
+                <h2>{{a.pname}}</h2>
+                <h2>₹{{a.dprice}}</h2>
+                <p class="d-inline" style="text-decoration: line-through; color:grey;">₹{{a.mrp}}</p>
+                <h5>Available offers*</h5>
+                <p>{{a.description}}</p>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endfor %}
+{% endblock body %}

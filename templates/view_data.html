@@ -1,0 +1,106 @@
+{% extends 'Base.html' %}
+{% block title %}View reports{% endblock title %}
+{% block body %}
+
+
+<table class="table"id="admin_signup1">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Product name</th>
+        <th scope="col">MRP</th>
+        <th scope="col">Discount-Price</th>
+        <th scope="col">Brand-name</th>
+        <th scope="col">Vender</th>
+        <th scope="col">Product-category</th> 
+        <th scope="col">Product-descripton</th> 
+        <th scope="col">Product-Images</th> 
+        <th scope="col">Action</th> 
+      </tr>
+    </thead>
+    <tbody>
+        {% for s in Show_products %}
+      <tr>
+        <th scope="row">{{s.id}}</th>
+        <td>{{s.pname}}</td>
+        <td>{{s.mrp}}</td>
+        <td>{{s.dprice}}</td>
+        <td>{{s.bname}}</td>
+        <td>{{s.vender_name}}</td>
+        <td>{{s.pcategory}}</td>
+        <td>{{s.description}}</td>
+        <td>
+         {% if s.p_image %}
+         <img src="{{s.p_image.url}}" alt=""style=" width: 4rem;" >
+         {% endif %}
+        </td>
+        <td>
+          <a href="#edit_modal{{forloop.counter}}">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit_modal{{forloop.counter}}">
+            Edit
+          </button></a>
+          <form action="del_data{{s.id}}" method="post" style="display:inline;">
+            {% csrf_token %}
+          <input type="submit" value="Delete" class="button btn btn-danger" >
+        </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+{% for y in Show_products %}
+<div class="modal fade" id="edit_modal{{forloop.counter}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+
+        <form action=" edit_data{{y.id}} " enctype="multipart/form-data" method="post">
+          {% csrf_token %}
+          <input type="text" class="form-control" value="{{y.pname}}" name="pname" required placeholder="Product name:"> <br>
+          <input type="text" class="form-control" value="{{y.mrp}}" name="mrp" required placeholder=" MRP:"> <br>
+          <input type="text" class="form-control" value="{{y.dprice}}" name="dprice" required placeholder="Discount Price:"> <br>
+          <input type="text" class="form-control" value="{{y.bname}}" name="bname" required placeholder="Brand Name:"> <br>
+          <input type="text" class="form-control" value="{{y.vender_name}}" name="vender" required placeholder="Vender Name:"> <br>
+          <select class="form-select" id="select" value="{{y.pcategory}}" name="pcategory" aria-label="Default select example">
+              <option value="Not chosen" selected>Product Category</option>
+              <option>Brand New</option>
+              <option>Used</option>
+              <option>Refurbished</option>
+          </select> <br>
+  
+        
+          <div class="mb-3">
+  
+              <input class="form-control" type="file" value="{{y.p_image.url}}" id="formFile" name="product_image">
+          </div>
+          <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Product Description </label>
+              <textarea class="form-control " value="{{y.description}}" id="exampleFormControlTextarea1" rows="6" name="pdescription"></textarea>
+            </div>
+  
+          
+          <input type="submit" id="sign_up" class="btn btn-outline-success" value="Sign up"><br>
+  
+      </form>
+  
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+{% endblock body %}

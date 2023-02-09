@@ -1,0 +1,464 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@300&family=Roboto:wght@400;500;700;900&display=swap');
+
+
+body {
+
+    font-family: "Roboto", san-sarif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+
+    font-weight: 900;
+    font-family: "Roboto";
+}
+
+.navbar-brand {
+    font-size: 1.7rem;
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+a,
+a.nav-link {
+    text-decoration: none;
+    transition: all 0.5s ease;
+    font-weight: 900;
+    font-family: "Roboto";
+
+}
+
+#login_details {
+    transition: all 4s ease;
+    font-weight: 900;
+    font-family: "Roboto";
+    background-color: #c8e0ee;
+    background-image: linear-gradient(160deg, #e5eef3 0%, #80D0C7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+
+}
+
+.active {
+    background-color: #0093E9 !important;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    transition: all 2s ease-in;
+
+}
+
+#login_here,
+#nav_logout {
+
+    color: rgb(255, 255, 255);
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
+    border: 2px solid;
+    padding: 6px;
+    border-radius: 9px;
+}
+
+.navbar {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.modal-content {
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
+}
+
+.modal-header {
+
+    border-bottom: none !important;
+    border-top: none !important;
+}
+
+#f_modal {
+
+    --bs-gutter-x: 0;
+}
+
+.form-control {
+    color: white !important;
+    border-color: rgba(255, 255, 255, 0.397) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+}
+
+.form-control::placeholder {
+
+    color: rgba(255, 255, 255, 0.418) !important;
+
+
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: white !important;
+}
+
+select#select.form-select {
+    color: #ffffff93 !important;
+    background-color: transparent !important;
+    border-radius: 0% !important;
+    border: 1px solid #ced4daa1;
+
+}
+
+option {
+
+    color: #0093E9;
+}
+
+.btn-outline-success {
+    color: white !important;
+    border-color: white !important;
+}
+
+.form-select:focus {
+    border-color: #86fed0 !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%) !important;
+}
+
+
+
+
+
+
+.btn-outline-success:hover {
+    color: rgb(255, 255, 255) !important;
+    background-color: #0093E9 !important;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%) !important;
+
+    border: 2px solid !important;
+
+    border-radius: 9px !important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero {
+
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+.overlay {
+    min-height: 100vh;
+    background-color: #0093e917;
+    background-image: linear-gradient(160deg, #0093e961 0%, #80d0c7c2 100%);
+
+}
+
+.col-12 {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.radio {
+    color: white;
+}
+
+
+.fixed-top {
+
+    z-index: 9 !important;
+}
+
+.alert-dismissible {
+    top: 10vh !important;
+    position: absolute !important;
+    z-index: 9 !important;
+}
+
+.dropdown-menu {
+
+
+    color: rgb(255, 255, 255) !important;
+    background-color: #0093E9 !important;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%) !important;
+
+
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    color: rgb(255, 255, 255) !important;
+    text-decoration: none !important;
+    background-color: #0093E9 !important;
+}
+
+#admin_signup {
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    top: 80px;
+    padding: 29px;
+    width: 50%;
+    border-radius: 21px;
+    position: relative;
+}
+
+#admin_signup1 {
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    top: 80px;
+
+    width: 100%;
+
+    position: relative;
+}
+
+#admin_signup2 {
+
+
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+
+.row {
+    --bs-gutter-x: 0 !important;
+}
+
+
+#pc_card_img {
+
+    width: 100%;
+}
+
+@media (max-width: 576px) {
+
+    #admin_signup {
+        background-color: #0093E9;
+        background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+        top: 80px;
+        padding: 29px;
+        width: 100%;
+        border-radius: 21px;
+        position: relative;
+    }
+
+    #slide1.col-2 {
+        display: none;
+    }
+
+    .col-10 {
+        width: 100% !important;
+    }
+
+
+    #pc_card_img {
+
+        width: 100%;
+    }
+
+    .cart_buttons {
+        text-align: center;
+    }
+
+    #pdetail_left {
+        width: 100% !important;
+    }
+
+    #pdetail_right {
+        width: 100% !important;
+    }
+
+    .pdetails {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #brand_new {
+        margin: auto;
+    }
+
+    #cfname,
+    #clname {
+        width: 10rem;
+    }
+    #c_details{
+        display: none;
+    }
+    #c_form{
+        width: 100% !important;
+    }
+}
+
+
+.pdetails {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.cart_buttons {
+    text-align: center;
+}
+
+
+
+.next_arraw {
+
+    z-index: 1 !important;
+    position: absolute !important;
+    width: 17px !important;
+    right: 14px !important;
+    top: 37% !important;
+    font-size: 2rem !important;
+    color: gainsboro !important;
+    cursor: pointer;
+}
+
+.prev_arraw {
+    z-index: 0 !important;
+    position: absolute !important;
+    width: 17px !important;
+    left: -15px !important;
+    top: 37% !important;
+    font-size: 2rem !important;
+    color: gainsboro !important;
+    cursor: pointer !important;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-decoration: none;
+    bottom: 0;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+}
+
+
+#slide1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#pname {
+    text-align: center;
+}
+
+#footer {
+
+    display: flex;
+    flex-direction: column;
+}
+
+#contact_us {
+    display: flex;
+    color: rgb(255, 255, 255) !important;
+    background-color: #0093E9 !important;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%) !important;
+}
+
+#cfname,
+#clname {
+    width: 20rem;
+}
+
+.ml11 {
+    font-weight: 700;
+    font-size: 3.5em;
+    color: white;
+}
+
+.ml11 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em;
+}
+
+.ml11 .line {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #fff;
+    transform-origin: 0 50%;
+}
+
+.ml11 .line1 {
+    top: 0;
+    left: 0;
+}
+
+.ml11 .letter {
+    display: inline-block;
+    line-height: 1em;
+}
+
+#contact_us {
+    margin-top: 60px;
+    background-color: red;
+    height: 12px;
+    width: 12px;
+    flex-direction: column;
+}
+
+.text_contact {
+    display: flex;
+    margin-top: 19px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#c_social {
+    color: rgba(255, 255, 255, 0.589) !important;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-right: 1rem;
+
+}
+
+#c_social:hover {
+    color: white !important;
+    scale: 1.2;
+}
+
+#con_fname,#con_lname{
+width: 45% !important;
+
+}
+
+.c_name{
+    display: flex;
+    justify-content: space-around;
+}
